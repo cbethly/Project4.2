@@ -1,5 +1,8 @@
 const express = require("express");
-
+const multer = require('multer');
+const path = require('path');
+const sharp = require('sharp');
+const bodyparser = require('body-parser');
 const cookieParser = require("cookie-parser");
 const sessions = require('express-session');
 const http = require('http');
@@ -20,7 +23,15 @@ app.use(sessions({
 
 app.use(cookieParser());
 
-var con = mysql2.createConnection({
+// body-parser middleware use
+app.use(bodyparser.json())
+app.use(bodyparser.urlencoded({
+    extended: true
+}))
+
+// Database connection
+
+const con = mysql2.createConnection({
     host: "localhost",
     user: "root", // my username
     password: "Bc@9996.", // my password
@@ -118,7 +129,6 @@ app.post("/dashboard", encodeUrl, (req, res)=>{
             // We create a session for the dashboard (user page) page and save the user data to this session:
             req.session.user = {
                 name: name,
-                email: email,
                 password: password 
             };
 
@@ -149,6 +159,37 @@ app.post("/dashboard", encodeUrl, (req, res)=>{
 
         });
     });
+});
+//! Use of Multer
+var storage = multer.diskStorage({
+    destination: (req, file, callBack) => {
+        callBack(null, './public/images/')     // './public/images/' directory name where save the file
+    },
+    filename: (req, file, callBack) => {
+        callBack(null, file.fieldname + '-' + Date.now() + path.extname(file.originalname))
+    }
+})
+var upload = multer({
+    storage: storage
+});
+//! Routes start
+app.get('/', (req, res) => {
+  res.sendFile(__dirname + '/upload.html');
+});
+//@type   POST
+//route for post data
+app.post("/post", upload.single('image'), (req, res) => {
+    if (!req.file) {
+        console.log("No file upload");
+    } else {
+        console.log(req.file.filename)
+        var imgsrc = 'http://127.0.0.1:4000/images/' + req.file.filename
+        var insertData = "INSERT INTO users_file(file_src)VALUES(?)"
+        con.query(insertData, [imgsrc], (err, result) => {
+            if (err) throw err
+            console.log("file uploaded")
+        })
+    }
 });
 
 app.listen(4000, ()=>{
