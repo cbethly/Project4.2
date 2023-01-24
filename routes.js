@@ -3,6 +3,7 @@ const { body } = require("express-validator");
 const { register } = require("./controllers/registerController");
 const { login } = require("./controllers/loginController");
 const { getUser } = require("./controllers/getUserController");
+
 const multer = require('multer');
 const upload = multer({ dest: 'uploads/' });
 

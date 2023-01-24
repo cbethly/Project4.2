@@ -1,40 +1,32 @@
-const jwt = require('jsonwebtoken');
-const conn = require('../dbConnection').promise();
+const jwt = require("jsonwebtoken");
+const conn = require("../dbConnection").promise();
 
-exports.getUser = async (req,res,next) => {
+exports.getUser = async (req) => {
+  try {
+    /* if (
+      !req.headers.authorization ||
+      !req.headers.authorization.startsWith("Bearer") ||
+      !req.headers.authorization.split(" ")[1]
+    ) {
+      return res.status(422).json({
+        message: "Please provide the token",
+      });
+    } */
 
-    try{
+    //const theToken = req.headers.authorization.split(" ")[1];
 
-        if(
-            !req.headers.authorization ||
-            !req.headers.authorization.startsWith('Bearer') ||
-            !req.headers.authorization.split(' ')[1]
-        ){
-            return res.status(422).json({
-                message: "Please provide the token",
-            });
-        }
+    // const decoded = jwt.verify(theToken, 'the-super-strong-secret');
 
-        const theToken = req.headers.authorization.split(' ')[1];
-        const decoded = jwt.verify(theToken, 'the-super-strong-secrect');
+    const id = req.body.id;
 
-        const [row] = await conn.execute(
-            "SELECT `id`,`name`,`email` FROM `users` WHERE `id`=?",
-            [decoded.id]
-        );
+    const row = await conn.execute(
+      // `SELECT id, name,email FROM users WHERE id=${id}`
+      `select * from users where id = ${id};`
+    );
 
-        if(row.length > 0){
-            return res.json({
-                user:row[0]
-            });
-        }
 
-        res.json({
-            message:"No user found"
-        });
-        
-    }
-    catch(err){
-        next(err);
-    }
-}
+    return row[0][0];
+
+
+  } catch (err) {}
+};
