@@ -3,29 +3,39 @@ const routes = require("./routes");
 const multer = require("multer");
 const bodyParser = require("body-parser");
 const { getUser } = require("./controllers/getUserController");
+// const fs = require ('fs');
+const db = require("./dbConnection");
+const cors = require("cors");
 const app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
-var storage = multer.diskStorage({
-  destination: function (req, file, callback) {
-    callback(null, "./uploads");
-  },
-  filename: function (req, file, callback) {
-    callback(null, file.fieldname + "-" + Date.now());
-  },
-});
-const upload = multer({ storage: storage }).single("userPhoto");
+// enable CORS
+app.use(cors());
+// parse application/json
+app.use(bodyParser.json());
+// parse application/x-www-form-urlencoded
+app.use(bodyParser.urlencoded({ extended: true }));
+// serving static files
+app.use("/uploads", express.static("uploads"));
 
-app.post("upload-avatar", function (req, res) {
-  upload(req, res, function (err) {
-    if (err) {
-      return res.end("Error uploading file.");
-    }
-    res.end("File is uploaded");
-  });
-});
+//upload function
+
+// const uploader = multer({
+//   storage: multer.memoryStorage(),
+// });
+
+// //route to handle upload
+// app.post("/upload", uploader.single("file"), async(req, res) => {
+//   const file = req.file;
+
+// fs.writeFileSync(__dirname + "/" + file.originalname, file.buffer)
+
+// res.status(200).json({
+//   status: "ok"
+// })
+// } );
 
 app.get("/register", (req, res) => {
   res.end("it works!");
@@ -35,12 +45,40 @@ app.get("/login", (req, res) => {
   res.end("it works!");
 });
 
+app.get("/upload", (req, res) => {
+  res.send("file upload rest api works!");
+});
+
+const storage = multer.diskStorage({
+  destination: (req, file, cb) => {
+    cb(null, "uploads");
+  },
+  filename: (req, file, cb) => {
+    cb(null, Date.now() + ".jpg");
+  },
+});
+
+const upload = multer({ storage: storage });
+
+// handle single file upload
+app.post("/upload", upload.single("dataFile"), (req, res, next) => {
+  const file = req.file;
+  if (!file) {
+    return res.status(400).send({ message: "Please upload a file." });
+  }
+  const sql = "INSERT INTO `file`(`name`) VALUES ('" + req.file.filename + "')";
+  const query = db.query(sql, function (err, result) {
+    return res.send({ message: "File is successfully uploaded.", file });
+  });
+});
+
 app.get("/getUser", async (req, res) => {
   const data = await getUser(req);
 
   if (data == null) {
-    res.send("unknown user")
-  } { 
+    res.send("unknown user");
+  }
+  {
     res.send(JSON.stringify(data));
   }
 });

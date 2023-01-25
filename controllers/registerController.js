@@ -1,6 +1,10 @@
 const {validationResult} = require('express-validator');
 const bcrypt = require('bcryptjs');
 const conn = require('../dbConnection').promise();
+const multer  = require('multer');
+
+const bodyparser = require('body-parser')
+const path = require('path');
 
 exports.register = async(req,res,next) => {
     const errors = validationResult(req);
