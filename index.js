@@ -66,7 +66,7 @@ app.post("/upload", upload.single("dataFile"), (req, res, next) => {
   if (!file) {
     return res.status(400).send({ message: "Please upload a file." });
   }
-  const sql = "INSERT INTO `file`(`name`) VALUES ('" + req.file.filename + "')";
+  const sql = "INSERT INTO `files`(`name`) VALUES ('" + req.file.filename + "')";
   const query = db.query(sql, function (err, result) {
     return res.send({ message: "File is successfully uploaded.", file });
   });
