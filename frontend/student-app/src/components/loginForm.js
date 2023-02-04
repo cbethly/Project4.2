@@ -26,8 +26,8 @@ const Login = (props) => {
           };    
           
           const onChange = (e) => {    
-                e.persist();    
-                debugger;    
+                // e.persist();    
+                // debugger;    
                 setStudent({...student, [e.target.name]: e.target.value});    
               }    
     return (  

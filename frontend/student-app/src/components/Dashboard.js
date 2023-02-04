@@ -5,9 +5,15 @@ const Dashboard = () => {
     useEffect(() => {  
         var a = localStorage.getItem('myData');  
         var b = JSON.parse(a);  
-        console.log(b.StudentName);  
-        setuser(b)  
-        console.log(user.StudentName)  
+        if (b) {
+            console.log(b.StudentName);  
+            setuser(b);  
+            console.log(user.StudentName);  
+          }
+          
+        // console.log(b.StudentName);  
+        // setuser(b)  
+        // console.log(user.StudentName)  
   
     }, [user.StudentName]);  
     return (  

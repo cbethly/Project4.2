@@ -3,27 +3,30 @@ import axios from "axios";
 import "./register.css";
 import "bootstrap/dist/css/bootstrap.min.css";
 
+
+
+
 const Register = (props) => {
   const [data, setdata] = useState({ Username: "", Email: "", Password: "" });
-  const apiUrl = "http://localhost:3000/register";
+  const apiUrl = "http://localhost:8080/api/register";
   const Registration = (e) => {
     e.preventDefault();
-    debugger;
-    const data1 = {
+
+    var data1 = {
       Username: data.Username,
       Email: data.Email,
       Password: data.Password,
     };
+    data1 = JSON.stringify(data1)
     axios.post(apiUrl, data1).then((result) => {
-      debugger;
       console.log(result.data);
       if (result.data.Status === "Invalid") alert("Invalid User");
       else props.history.push("/Dashboard");
     });
   };
   const handleChange = (e) => {
-    setdata(e.target.value);
-  };
+    setdata({...data, [e.target.name]: e.target.value});
+};
   return (
     <div className="container">
       <div className="row">
@@ -47,7 +50,7 @@ const Register = (props) => {
                     <div className="col-sm-6 mb-3 mb-sm-0">
                       <input
                         type="text"
-                        name="username"
+                        name="Username"
                         onChange={handleChange}
                         value={data.Username}
                         className="form-control"
@@ -70,7 +73,7 @@ const Register = (props) => {
                   <div className="form-group">
                     <input
                       type="password"
-                      name="password"
+                      name="Password"
                       onChange={handleChange}
                       value={data.Password}
                       className="form-control"
@@ -81,6 +84,7 @@ const Register = (props) => {
 
                   <button type="submit" className="btn btn-primary  btn-block">
                     Register User
+
                   </button>
                   <hr />
                 </form>
