@@ -26,8 +26,7 @@ const Login = (props) => {
           };    
           
           const onChange = (e) => {    
-                // e.persist();    
-                // debugger;    
+                  
                 setStudent({...student, [e.target.name]: e.target.value});    
               }    
     return (  
@@ -51,12 +50,7 @@ const Login = (props) => {
                         <div class="form-group">  
                           <input type="password" class="form-control" value={student.Password} onChange={ onChange }  name="Password" id="DepPasswordartment" placeholder="Password"/>  
                         </div>  
-                        {/* <div class="form-group">  
-                          <div class="custom-control custom-checkbox small">  
-                            <input type="checkbox" class="custom-control-input" id="customCheck"/>  
-                            <label class="custom-control-label" for="customCheck">Remember Me</label>  
-                          </div>  
-                        </div> */}  
+                    
                         <button type="submit" className="btn btn-info mb-1" block><span>Login</span></button>    
                         <hr/>  
                       </form>  
