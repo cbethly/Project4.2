@@ -5,8 +5,11 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const router = require("./router");
+const multer = require('multer');
 
 const app = express();
+
+app.use(express.static('public'));
 
 app.use(express.json());
 
@@ -37,5 +40,11 @@ app.use((err, req, res, next) => {
   });
   next();
 });
+
+
+
+
+
+
 
 app.listen(8080, () => console.log("Server is running on port 8080"));
