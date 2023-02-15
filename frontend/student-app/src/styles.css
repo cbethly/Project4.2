@@ -3,6 +3,7 @@
 }
 body {
     margin: 0;
+    padding: 0;
 }
 
 .nav {
@@ -56,7 +57,7 @@ body {
     margin-top: 14px;
 }
 .container {
-    margin: 1rem;
+    margin: 0.01rem;
     text-align: center;
 }
 

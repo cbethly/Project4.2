@@ -3,6 +3,7 @@ import Navbar from "./components/Navbar";
 import Home from "./Pages/Home";
 import Projects from "./Pages/Projects";
 import Explore from "./Pages/Explore";
+import Sidebar from "./components/Sidebar";
 
 import Register from "./components/registrationForm";
 import Login from "./components/loginForm";
@@ -14,10 +15,11 @@ function App() {
   return (
     <div>
       <Navbar/>
+      <Sidebar/>
       <div className="container">
         <Routes>
         
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home/>}/>
           <Route path="/Projects" element={<Projects/>} />
           <Route path="/Explore" element={<Explore/>} />
         </Routes>

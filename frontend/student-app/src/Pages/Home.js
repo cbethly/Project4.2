@@ -1,5 +1,5 @@
 import React from "react";  
-import Slider from "./Slider";
+import Sidebar from "../components/Sidebar";
 
 
 
@@ -7,8 +7,9 @@ const Home = () => {
 
     return(
         <div>
-            <h1>Home</h1>
-            <Slider />
+           
+            {/* <Sidebar/> */}
+            
             
         </div>
     )
