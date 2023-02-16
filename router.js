@@ -5,26 +5,69 @@ const { signupValidation, loginValidation } = require("./Validation");
 const { validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
-const multer = require('multer');
+const multer = require("multer");
+const path = require("path");
+const { response } = require("express");
 
+// Define storage for the files
 const storage = multer.diskStorage({
   destination: function (req, file, cb) {
-     cb(null, 'uploads');
+    cb(null, "public/uploads/");
   },
   filename: function (req, file, cb) {
-     cb(null, Date.now() + '-' + file.originalname);
+    cb(
+      null,
+      file.fieldname +
+        "-" +
+        Date.now() +
+        path.extname(file.originalname)
+    );
+  },
+});
+
+// Initialize upload
+const upload = (req, res, callback) => {
+  const uploadMiddleware = multer({
+    storage: storage,
+    limits: { fileSize: 1000000 },
+  }).single("myFile");
+
+  uploadMiddleware(req, res, (err) => {
+    if (err) {
+      return callback(err);
+    }
+    return callback(null);
+
+    
   }
-});
-const upload = multer({ storage: storage });
+  
+  );
+  
+};
 
-router.post('/image-upload', upload.single('image'),(req, res) => {
-  const image = req.image;
-    res.send(apiResponse({message: 'File uploaded successfully.', image}));
+
+router.get('/upload', (req, res) => {0
+  res.send('This is the upload page');
 });
 
-function apiResponse(results){
-  return JSON.stringify({"status": 200, "error": null, "response": results});
-}
+router.post("/upload", (req, res, next) => {
+  upload(req, res, (err) => {
+    if (err) {
+      return res.status(400).send({ msg: "Error uploading file" });
+    }
+    const filePath = req.file.path;
+    const insertQuery = `INSERT INTO files (path) VALUES ('${filePath}')`;
+    db.query(insertQuery, (insertError, insertResult) => {
+      if (insertError) {
+        return res.status(400).send({ msg: insertError });
+      }
+      return res.status(201).send({ msg: "File uploaded successfully!" });
+    });
+  });
+  next();
+});
+
+
 
 router.post("/register", signupValidation, (req, res) => {
   const email = db.escape(req.body.email.toLowerCase());
@@ -60,7 +103,6 @@ router.post("/login", loginValidation, (req, res, next) => {
     (err, result) => {
       // user does not exists
       if (err) {
-        throw err;
         return res.status(400).send({
           msg: err,
         });
@@ -77,7 +119,6 @@ router.post("/login", loginValidation, (req, res, next) => {
         (bErr, bResult) => {
           // wrong password
           if (bErr) {
-            throw bErr;
             return res.status(401).send({
               msg: "Email or password is incorrect!",
             });
@@ -97,6 +138,7 @@ router.post("/login", loginValidation, (req, res, next) => {
               user: result[0],
             });
           }
+
           return res.status(401).send({
             msg: "Username or password is incorrect!",
           });

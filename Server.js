@@ -5,16 +5,15 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const cookieParser = require("cookie-parser");
 const router = require("./router");
-const multer = require('multer');
 
 const app = express();
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 
 app.use(express.json());
 
 app.use(bodyParser.json());
-router.use(cookieParser());
+
 app.use(
   bodyParser.urlencoded({
     extended: true,
@@ -32,7 +31,7 @@ app.use("/api", router);
 
 // Handling Errors
 app.use((err, req, res, next) => {
-  // console.log(err);
+  console.log(err);
   err.statusCode = err.statusCode || 500;
   err.message = err.message || "Internal Server Error";
   res.status(err.statusCode).json({
@@ -41,10 +40,6 @@ app.use((err, req, res, next) => {
   next();
 });
 
-
-
-
-
-
+router.use(cookieParser()); // Moved after router is defined
 
 app.listen(8080, () => console.log("Server is running on port 8080"));

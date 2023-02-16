@@ -2,7 +2,22 @@
   text-align: center;
   width: 100vw;
   height: 100vh;
+  
 }
+/* 
+.home {
+  background-image: 
+  url(
+"https://media.geeksforgeeks.org/wp-content/uploads/rk.png");
+  background-size: "cover";
+  background-position: center;
+  height: 100vh;
+  margin-left: 0px;
+  margin-right: 0px;
+  font-size:50px;
+  background-repeat:no-repeat; 
+
+} */
 body {
   margin: 0;
   padding: 0;
@@ -66,7 +81,7 @@ body {
 
 .SidebarList .row:hover {
   cursor: pointer;
-  background-color: #293846 ;
+  background-color: #371D10 ;
 }
 .row #icon {
   flex: 30%;
