@@ -1,27 +1,26 @@
 import "./App.css";
-import Navbar from "./components/Navbar";
-import Home from "./Pages/Home";
-import Projects from "./Pages/Projects";
-import Explore from "./Pages/Explore";
-import Sidebar from "./components/Sidebar";
+import Main from "./components/Main/Main";
+import Login from "./components/Login/login";
 
-import Register from "./components/registrationForm";
-import Login from "./components/loginForm";
 
-import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Dashboard from "./components/Dashboard";
+import Signup from "./components/Signup/signup";
+
+
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 
 function App() {
+  const user = localStorage.getItem('token')
   return (
     <div>
-      <Navbar/>
-      <Sidebar/>
-      <div className="container">
+   
+      <div>
         <Routes>
         
-          <Route path="/" element={<Home/>}/>
-          <Route path="/Projects" element={<Projects/>} />
-          <Route path="/Explore" element={<Explore/>} />
+        { user &&<Route path="/" element={<Main/>}/>}
+          <Route path="/signup" element={<Signup/>} />
+          <Route path="/login" element={<Login/>} />
+          <Route path="/" element={<Navigate replace to ="/login"/>} />
+         
         </Routes>
       </div>
     </div>

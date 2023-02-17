@@ -7,7 +7,7 @@ body {
 }
 
 .nav {
-    background-color: #E8AE10;
+    background-color: #8b9eb7;
     color: white;
     display: flex;
     justify-content: left;
@@ -56,9 +56,9 @@ body {
     width: 200px;
     margin-top: 14px;
 }
-.container {
+/* .container {
     margin: 0.01rem;
     text-align: center;
-}
+} */
 
 

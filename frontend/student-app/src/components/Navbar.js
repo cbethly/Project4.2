@@ -1,12 +1,14 @@
 import React from "react";
 import { Link, useMatch, useResolvedPath} from "react-router-dom";
 
+
 const CustomLink = ({ to, children, ...props }) => {
     const resolvedPath = useResolvedPath(to);
 
   const isActive = useMatch({path: resolvedPath.pathname, end: true});
 
   return (
+    
     <li className={isActive ? "active" : ""}>
       <Link to={to} {...props}>
         {children}
@@ -19,9 +21,6 @@ const Navbar = () => {
 
   return (
     <nav className="nav">
-      <h1 className="title">
-        Student Portfolio
-      </h1>
       <ul>
         <Link to={"/"}>Home</Link>
        
@@ -36,9 +35,14 @@ const Navbar = () => {
           placeholder="Search..."
           required
         />
+        
       </div>
+     
     </nav>
+    
+   
   );
+  
 };
 
 export default Navbar;
