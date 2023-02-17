@@ -3,8 +3,8 @@ const router = express.Router();
 const {getReviews, updateReviews,setReviews,deleteReviews} = require('../controllers/reviewController');
 const { protect } = require('../middleware/authMiddleware')
 
-router.route('/').get(getReviews).post(setReviews)
-router.route('/:id').put(updateReviews).delete(deleteReviews)
+router.route('/').get(protect, getReviews).post(protect,setReviews)
+router.route('/:id').put(protect, updateReviews).delete(protect, deleteReviews)
 
 
 

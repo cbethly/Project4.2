@@ -2,12 +2,14 @@ const asyncHandler = require('express-async-handler')
 
 const Reviews = require('../models/reviewModel')
 
+const User = require('../models/userModel')
+
 //@desc GetReviews
 //@route GET /api/reviews
 //@access Private
 
 const getReviews = asyncHandler(async (req, res) => {
-  const reviews = await Reviews.find()
+  const reviews = await Reviews.find({ user: req.user.id})
   res.status(200).json(reviews);
 });
 
@@ -23,7 +25,8 @@ const setReviews = asyncHandler(async (req, res)=> {
     }
 
     const reviews = await Reviews.create({
-      text: req.body.text
+      text: req.body.text,
+      user: req.user.id
     })
   res.status(200).json(reviews);
 });
