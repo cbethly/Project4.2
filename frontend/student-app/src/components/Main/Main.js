@@ -1,5 +1,6 @@
 import styles from "./styles.module.css";
 import Navbar from "../Navbar";
+import Sidebar from "../Sidebar";
 
 
 const Main = () => {
@@ -17,6 +18,7 @@ const Main = () => {
 				</button>
 			</nav>
 			<Navbar/>
+			<Sidebar/>
 		</div>
 	);
 };

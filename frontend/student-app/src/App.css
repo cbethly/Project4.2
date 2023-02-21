@@ -4,20 +4,7 @@
   height: 100vh;
   
 }
-/* 
-.home {
-  background-image: 
-  url(
-"https://media.geeksforgeeks.org/wp-content/uploads/rk.png");
-  background-size: "cover";
-  background-position: center;
-  height: 100vh;
-  margin-left: 0px;
-  margin-right: 0px;
-  font-size:50px;
-  background-repeat:no-repeat; 
 
-} */
 body {
   margin: 0;
   padding: 0;
@@ -25,7 +12,7 @@ body {
 .Sidebar {
   height: 100%;
   width: 250px;
-  background-color:  #65350F;
+  background-color:  #27285C;
  
 }
 
@@ -81,7 +68,7 @@ body {
 
 .SidebarList .row:hover {
   cursor: pointer;
-  background-color: #371D10 ;
+  background-color:  #c0c0c0;
 }
 .row #icon {
   flex: 30%;
