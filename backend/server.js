@@ -18,6 +18,7 @@ app.use(express.urlencoded({ extended: false }));
 //initializing the paths for routes
 app.use("/api/reviews", require("./routes/reviewRoutes"));
 app.use("/api/users", require("./routes/userRoutes"));
+app.use("/api/project", require("./routes/projectRoute"))
 
 app.use(errorHandler);
 
