@@ -14,9 +14,9 @@ export const SidebarData = [
     },
     
     {
-        title:"Home",
+        title:"home",
         icon:<HomeIcon/>,
-        link:"/Home"
+        link:"/home"
     },
     {
         title:"Projects",

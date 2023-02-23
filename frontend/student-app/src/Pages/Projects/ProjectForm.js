@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import './styles.css';
 
 function ProjectForm() {
   const [title, setTitle] = useState('');
@@ -41,26 +42,26 @@ function ProjectForm() {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
+    <form onSubmit={handleSubmit} className="form">
       <label>
-        Title:
+        Project title:
         <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
       </label>
       <br />
-      <label>
+      <label >
         Description:
         <textarea value={description} onChange={(event) => setDescription(event.target.value)} />
       </label>
       <br />
       <label>
-        Links:
+        Project links:
         <input type="text" value={links} onChange={(event) => setLinks(event.target.value)} />
       </label>
       <br />
       {isSubmitting ? (
         <p>Submitting form...</p>
       ) : (
-        <button type="submit">Submit</button>
+        <button type="submit" className='button'>Submit</button>
       )}
       {errorMessage && <p>{errorMessage}</p>}
     </form>
