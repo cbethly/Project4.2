@@ -1,6 +1,7 @@
 const express = require("express");
 const colors = require("colors");
 const dotenv = require("dotenv").config();
+var cors = require('cors')
 
 const bodyParser = require("body-parser");
 const { errorHandler } = require("./middleware/errorMiddleware");
@@ -14,6 +15,7 @@ const app = express();
 
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+app.use(cors())
 
 //initializing the paths for routes
 app.use("/api/reviews", require("./routes/reviewRoutes"));

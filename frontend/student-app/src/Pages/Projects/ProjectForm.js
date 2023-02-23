@@ -1,11 +1,12 @@
 import { useState } from 'react';
 import axios from 'axios';
-import './styles.css';
+
+import "./styles.css"
 
 function ProjectForm() {
   const [title, setTitle] = useState('');
   const [description, setDescription] = useState('');
-  const [links, setLinks] = useState('');
+  const [link, setLink] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -15,11 +16,13 @@ function ProjectForm() {
     setIsSubmitting(true);
 
     const formData = {
+      user : "63f7e0c33cd721f735109140",
       title,
       description,
-      links,
+      link,
     };
 
+    
     // Send form data to server using axios
     axios.post('http://localhost:8000/api/project', formData)
       .then((response) => {
@@ -38,7 +41,7 @@ function ProjectForm() {
     // Reset the form fields
     setTitle('');
     setDescription('');
-    setLinks('');
+    setLink('');
   };
 
   return (
@@ -54,14 +57,14 @@ function ProjectForm() {
       </label>
       <br />
       <label>
-        Project links:
-        <input type="text" value={links} onChange={(event) => setLinks(event.target.value)} />
+        Project link:
+        <input type="text" value={link} onChange={(event) => setLink(event.target.value)} />
       </label>
       <br />
       {isSubmitting ? (
         <p>Submitting form...</p>
       ) : (
-        <button type="submit" className='button'>Submit</button>
+        <button type="submit" className='submit-button'>Submit</button>
       )}
       {errorMessage && <p>{errorMessage}</p>}
     </form>
