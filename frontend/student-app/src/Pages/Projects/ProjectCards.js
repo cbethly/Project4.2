@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import './styles.css'
 
 function ProjectCards() {
   const [projectDetails, setProjectDetails] = useState([]);
@@ -20,11 +21,11 @@ function ProjectCards() {
   return (
     <div>
       {projectDetails.map((project) => (
-        <Card style={{ width: "18rem" }}>
+        <Card style={{ width: "18rem" }} className='card'>
           <Card.Body>
-            <Card.Title>{project.title}</Card.Title>
+            <Card.Title className="title">{project.title}</Card.Title>
             <Card.Text>{project.description}</Card.Text>
-            <Button variant="primary">{project.link}</Button>
+            <Button variant="primary" className="projectButton"><a href={project.link} className='pLink'>Go to project</a></Button>
           </Card.Body>
         </Card>
       ))}

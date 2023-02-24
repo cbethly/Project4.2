@@ -1,0 +1,28 @@
+.main {
+    display: flex;
+    height: 50px;
+    width: 100%;
+    margin-bottom: 20px;
+   
+    flex-direction: column;
+    row-gap: 20px;
+    float: right;
+    
+  }
+  
+  h1 {
+    margin: 10px;
+    font-size: 40px;
+    color: rgb(1, 1, 59);
+  }
+  
+  .search {
+    width: 30%;
+    margin-left: 10px;
+  }
+  
+  ul li {
+    font-size: 20px;
+  } 
+  
+  
