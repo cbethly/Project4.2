@@ -8,7 +8,7 @@ function Search() {
     const searchTerm = e.target.value.toLowerCase();
     const filtered =
       allData &&
-      allData.filter((data) => data.c.toLowerCase().includes(searchTerm));
+      allData.filter((data) => data.category.toLowerCase().includes(searchTerm));
     setFilteredData(filtered || []);
   };
 
@@ -26,11 +26,11 @@ function Search() {
 
   return (
     <div>
-      <div style={{ margin: "0 auto", marginTop: "10%" }}>
-        <label>Search:</label>
+      <div className="main">
+        <label className="search">Search:</label>
         <input type="text" onChange={(event) => handleSearch(event)} />
         {filteredData.map((data) => {
-          return <div key={data.category}>{data.title}</div>;
+          return <div key={data.category}>{data.category}</div>;
         })}
       </div>
     </div>
