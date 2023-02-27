@@ -21,10 +21,11 @@ function ProjectCards() {
   return (
     <div>
       {projectDetails.map((project) => (
-        <Card style={{ width: "18rem" }} className='card'>
+        <Card key={project.title} style={{ width: "18rem" }} className='card'>
           <Card.Body>
             <Card.Title className="title">{project.title}</Card.Title>
-            <Card.Text>{project.description}</Card.Text>
+            <Card.Text className="category">{project.category}</Card.Text>
+            <Card.Text className="description">{project.description}</Card.Text>
             <Button variant="primary" className="projectButton"><a href={project.link} className='pLink'>Go to project</a></Button>
           </Card.Body>
         </Card>

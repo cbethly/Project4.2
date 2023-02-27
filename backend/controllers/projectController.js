@@ -16,8 +16,8 @@ const getProject = asyncHandler(async (req, res) => {
 });
 
 const setProject = asyncHandler(async (req, res) => {
-  const { title, description, link, user } = req.body;
-  if (!title || !description || !link || !user) {
+  const { title, category, description, link, user } = req.body;
+  if (!title || !category || !description || !link || !user) {
     res.status(400);
     throw new Error("Please add all the fields");
   }
@@ -26,6 +26,7 @@ const setProject = asyncHandler(async (req, res) => {
 
   const project = await Project.create({
     title,
+    category,
     description,
     link,
     user,
@@ -45,17 +46,17 @@ const updateProject = asyncHandler(async (req, res) => {
     throw new Error("project not found");
   }
 
-  const user = await User.findById(req.user.id);
+;
 
   //check for user
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
 
   //make sure the logged in user matches the project user
 
-  if (project.user.toString() !== user.id) {
+  if (project.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }
@@ -79,17 +80,17 @@ const deleteProject = asyncHandler(async (req, res) => {
     throw new Error("Project not found");
   }
 
-  const user = await User.findById(req.user.id);
+
 
   //check for user
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
 
   //make sure the logged in user matches the project user
 
-  if (project.user.toString() !== user.id) {
+  if (project.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }

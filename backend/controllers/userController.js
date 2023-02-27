@@ -80,7 +80,7 @@ const loginUser = asyncHandler(async (req, res) => {
 //@access Private
 
 const getUser = asyncHandler(async (req, res) => {
-  res.json({ message: "User data display" });
+  res.status(200).json(req.user);
 });
 
 // Generate JWT

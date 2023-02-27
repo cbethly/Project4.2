@@ -5,10 +5,12 @@ import "./styles.css"
 
 function ProjectForm() {
   const [title, setTitle] = useState('');
+  const [category, setCategory] = useState('');
   const [description, setDescription] = useState('');
   const [link, setLink] = useState('');
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState('');
+  const [successMessage, setSuccessMessage] = useState('');
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -18,6 +20,7 @@ function ProjectForm() {
     const formData = {
       user : "63f7e0c33cd721f735109140",
       title,
+      category,
       description,
       link,
     };
@@ -30,6 +33,7 @@ function ProjectForm() {
 
         // Handle success response 
         console.log('Success:', response.data);
+        setSuccessMessage('Project was submitted Successfully');
       })
       .catch((error) => {
         setIsSubmitting(false);
@@ -40,6 +44,7 @@ function ProjectForm() {
 
     // Reset the form fields
     setTitle('');
+    setCategory('');
     setDescription('');
     setLink('');
   };
@@ -47,8 +52,13 @@ function ProjectForm() {
   return (
     <form onSubmit={handleSubmit} className="form">
       <label>
-        Project title:
+        Project Title:
         <input type="text" value={title} onChange={(event) => setTitle(event.target.value)} />
+      </label>
+      <br />
+      <label>
+         Category:
+        <input type="text" value={category} onChange={(event) => setCategory(event.target.value)} placeholder="Web, AI, Android, IOT, Cybersecurity ...."/>
       </label>
       <br />
       <label >
@@ -66,6 +76,7 @@ function ProjectForm() {
       ) : (
         <button type="submit" className='submit-button'>Submit</button>
       )}
+       {successMessage && <p>{successMessage}</p>}
       {errorMessage && <p>{errorMessage}</p>}
     </form>
   );

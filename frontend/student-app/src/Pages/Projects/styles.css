@@ -19,6 +19,7 @@ body {
   border-radius: 5px;
   width: 30%;
   margin-left: 10px;
+  background-color: #007AFF;
 }
 
 .form {
@@ -30,6 +31,8 @@ body {
   display: grid;
   grid-template-columns: 1fr 1fr;
   gap: 2rem;
+  background-color:#27285c ;
+  color: white;
 }
 
 .description {
@@ -40,10 +43,18 @@ body {
   margin-bottom: 15px;
   padding: 10px;
   margin-left: 10px;
+  background-color: #27285C;;
 }
 .title {
-  color: #27285C;
+  color: white;
   font-family:system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+.category {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: white;
+}
+.description {
+  color: white;
 }
 .newButton {
   background-color: #27285C;
@@ -65,14 +76,14 @@ body {
 
 .projectButton {
   width: 50%;
-  background-color: #27285c;
+  background-color: #007AFF;
   outline: none;
   text-decoration: none;
   padding: 2px 1px 0;
 }
 
 .projectButton:hover {
-  background-color: #27285c;
+  background-color: gray;
 }
 .pLink {
   color: white;
