@@ -17,7 +17,7 @@ function App() {
   
     
     <div>
-      {/* <Navbar/> */}
+      
       
       <Routes>
         { user ? <Route path="/" element={<Main/>}/> : <Route path="/" element={<Navigate replace to ="/login"/>} />}

@@ -50,6 +50,7 @@ function ProjectForm() {
   };
 
   return (
+    <div className='form-container'>
     <form onSubmit={handleSubmit} className="form">
       <label>
         Project Title:
@@ -79,6 +80,7 @@ function ProjectForm() {
        {successMessage && <p>{successMessage}</p>}
       {errorMessage && <p>{errorMessage}</p>}
     </form>
+    </div>
   );
 }
 

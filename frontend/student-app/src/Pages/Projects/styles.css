@@ -3,6 +3,7 @@ body {
   background-color: hsl(0, 0%, 98%);
   color: #333;
   font: 100% / normal sans-serif;
+  background-color:#ECECEC;
 }
 .submit-button {
   /* remove default behavior */
@@ -22,6 +23,9 @@ body {
   background-color: #007AFF;
 }
 
+
+
+
 .form {
   box-sizing: border-box;
   padding: 2rem;
@@ -33,7 +37,55 @@ body {
   gap: 2rem;
   background-color:#27285c ;
   color: white;
+  width: 80%;
+  max-width: 500px;
+  margin: auto;
 }
+
+.pagination-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: auto;
+}
+
+.pagination {
+  display: inline-block;
+}
+
+.pagination a {
+  color: black;
+  float: left;
+  padding: 8px 16px;
+  text-decoration: none;
+  transition: background-color .3s;
+  border: 1px solid #ddd; /* Gray */
+  margin: 0 4px; /* 0 is for top and bottom. Feel free to change it */
+  font-size: 22px;
+
+}
+
+.pagination a.active {
+  background-color: #4CAF50;
+  color: white;
+  border-radius: 5px;
+}
+
+.pagination a:hover:not(.active) {background-color: #ddd;
+  border-radius: 5px;
+}
+
+.pagination a:first-child {
+  border-top-left-radius: 5px;
+  border-bottom-left-radius: 5px;
+}
+
+.pagination a:last-child {
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+}
+
 
 .description {
   grid-column: span 2;
@@ -52,6 +104,11 @@ body {
 .category {
   font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
   color: white;
+}
+
+.card-container {
+  display: flex;
+  flex-wrap: wrap;
 }
 .description {
   color: white;
