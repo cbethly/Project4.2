@@ -43,7 +43,7 @@ function ProjectCards() {
     <div className="card-container">
       {isLoading && <div>Loading...</div>}
       {!isLoading && currentItems.map((project) => (
-        <Card key={project.title} style={{ width: "18rem" }} className='card'>
+          <Card key={`${project.title}-${project.category}`} style={{ width: "18rem" }} className='card'>
           <Card.Body>
             <Card.Title className="title">{project.title}</Card.Title>
             <Card.Text className="category">{project.category}</Card.Text>
