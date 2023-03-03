@@ -48,10 +48,13 @@ body {
   justify-content: center;
   align-items: center;
   margin-top: auto;
+ 
 }
 
 .pagination {
   display: inline-block;
+  margin-top: 20px;
+  
 }
 
 .pagination a {
@@ -151,3 +154,15 @@ body {
   color: white;
   border-bottom: 1px solid;
 }
+.search-container {
+  margin-bottom: 1rem;
+}
+
+.search-container input {
+  padding: 0.5rem;
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+

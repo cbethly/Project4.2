@@ -9,6 +9,8 @@ function ProjectCards() {
   const [itemsPerPage, setItemsPerPage] = useState(10);
   const [currentItems, setCurrentItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [searchQuery, setSearchQuery] = useState("");
+
 
   useEffect(() => {
     setIsLoading(true);
@@ -38,9 +40,32 @@ function ProjectCards() {
   for (let i = 1; i <= Math.ceil(projectDetails.length / itemsPerPage); i++) {
     pageNumbers.push(i);
   }
+  useEffect(() => {
+    if (projectDetails.length > 0) {
+      const filteredItems = projectDetails.filter((project) =>
+        project.category.toLowerCase().includes(searchQuery.toLowerCase())
+      );
+      const indexOfLastItem = currentPage * itemsPerPage;
+      const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+      const newCurrentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+      setCurrentItems(newCurrentItems);
+    }
+  }, [currentPage, itemsPerPage, projectDetails, searchQuery]);
+  
 
   return (
+    <div>
+       <div className="search-container">
+  <input
+    type="text"
+    placeholder="Search categories"
+    value={searchQuery}
+    onChange={(e) => setSearchQuery(e.target.value)}
+  />
+</div>
+
     <div className="card-container">
+     
       {isLoading && <div>Loading...</div>}
       {!isLoading && currentItems.map((project) => (
           <Card key={`${project.title}-${project.category}`} style={{ width: "18rem" }} className='card'>
@@ -70,6 +95,7 @@ function ProjectCards() {
           </div>
         </div>
       )}
+    </div>
     </div>
   );
 }
