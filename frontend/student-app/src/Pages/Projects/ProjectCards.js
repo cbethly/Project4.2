@@ -1,16 +1,15 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import './styles.css'
+import "./styles.css";
 
 function ProjectCards() {
   const [projectDetails, setProjectDetails] = useState([]);
   const [currentPage, setCurrentPage] = useState(1);
-  const [itemsPerPage, setItemsPerPage] = useState(10);
+  const [itemsPerPage, setItemsPerPage] = useState(24);
   const [currentItems, setCurrentItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [searchQuery, setSearchQuery] = useState("");
-
 
   useEffect(() => {
     setIsLoading(true);
@@ -31,7 +30,10 @@ function ProjectCards() {
     if (projectDetails.length > 0) {
       const indexOfLastItem = currentPage * itemsPerPage;
       const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-      const newCurrentItems = projectDetails.slice(indexOfFirstItem, indexOfLastItem);
+      const newCurrentItems = projectDetails.slice(
+        indexOfFirstItem,
+        indexOfLastItem
+      );
       setCurrentItems(newCurrentItems);
     }
   }, [currentPage, itemsPerPage, projectDetails]);
@@ -47,55 +49,70 @@ function ProjectCards() {
       );
       const indexOfLastItem = currentPage * itemsPerPage;
       const indexOfFirstItem = indexOfLastItem - itemsPerPage;
-      const newCurrentItems = filteredItems.slice(indexOfFirstItem, indexOfLastItem);
+      const newCurrentItems = filteredItems.slice(
+        indexOfFirstItem,
+        indexOfLastItem
+      );
       setCurrentItems(newCurrentItems);
     }
   }, [currentPage, itemsPerPage, projectDetails, searchQuery]);
-  
 
   return (
     <div>
-       <div className="search-container">
-  <input
-    type="text"
-    placeholder="Search categories"
-    value={searchQuery}
-    onChange={(e) => setSearchQuery(e.target.value)}
-  />
-</div>
+      <div className="search-container">
+        <input
+          type="text"
+          placeholder="Search categories"
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+        />
+      </div>
 
-    <div className="card-container">
-     
-      {isLoading && <div>Loading...</div>}
-      {!isLoading && currentItems.map((project) => (
-          <Card key={`${project.title}-${project.category}`} style={{ width: "18rem" }} className='card'>
-          <Card.Body>
-            <Card.Title className="title">{project.title}</Card.Title>
-            <Card.Text className="category">{project.category}</Card.Text>
-            <Card.Text className="description">{project.description}</Card.Text>
-            <Button variant="primary" className="projectButton"><a href={project.link} className='pLink'>Go to project</a></Button>
-          </Card.Body>
-        </Card>
-      ))}
+      <div className="card-container">
+        {isLoading && <div>Loading...</div>}
+        {!isLoading &&
+          currentItems.map((project) => (
+            <a href={project.link} target="_blank" className="pLink">
+              <Card
+                key={`${project.title}-${project.category}`}
+                className="card"
+              >
+                <Card.Body>
+                  <Card.Title className="title">{project.title}</Card.Title>
+                  <Card.Text className="category">{project.category}</Card.Text>
+                  <Card.Text className="description">
+                    {project.description}
+                  </Card.Text>
+                </Card.Body>
+              </Card>
+            </a>
+          ))}
+      </div>
       {!isLoading && (
         <div className="pagination-container">
           <div className="pagination">
             {pageNumbers.map((number) => (
-              <Button key={number} variant="outline-secondary" onClick={() => setCurrentPage(number)}>
+              <Button
+                key={number}
+                variant="outline-secondary"
+                onClick={() => setCurrentPage(number)}
+              >
                 {number}
               </Button>
             ))}
           </div>
           <div>
-            <select value={itemsPerPage} onChange={(e) => setItemsPerPage(parseInt(e.target.value))}>
-              <option value={10}>10 per page</option>
+            <select
+              value={itemsPerPage}
+              onChange={(e) => setItemsPerPage(parseInt(e.target.value))}
+            >
+              <option value={24}>24 per page</option>
               <option value={12}>12 per page</option>
               <option value={15}>15 per page</option>
             </select>
           </div>
         </div>
       )}
-    </div>
     </div>
   );
 }
