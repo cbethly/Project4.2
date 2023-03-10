@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { Link } from "react-router-dom";
 import "./styles.css";
 
 function ProjectCards() {
@@ -72,11 +73,12 @@ function ProjectCards() {
         {isLoading && <div>Loading...</div>}
         {!isLoading &&
           currentItems.map((project) => (
-            <a href={project.link} target="_blank" className="pLink">
-              <Card
-                key={`${project.title}-${project.category}`}
-                className="card"
-              >
+            <Link
+              to={`/explore/${project.id}`}
+              className="pLink"
+              key={project.id}
+            >
+              <Card className="card">
                 <Card.Body>
                   <Card.Title className="title">{project.title}</Card.Title>
                   <Card.Text className="category">{project.category}</Card.Text>
@@ -85,7 +87,7 @@ function ProjectCards() {
                   </Card.Text>
                 </Card.Body>
               </Card>
-            </a>
+            </Link>
           ))}
       </div>
       {!isLoading && (
