@@ -3,8 +3,8 @@ import Main from "./components/Main/Main";
 import Login from "./components/Login/login";
 import Signup from "./components/Signup/signup";
 import Projects from "./Pages/Projects/Projects";
-import Home from "./Pages/Home/Home";
 import Explore from "./Pages/Explore/Explore";
+import Home from "./Pages/Home/Home";
 
 import ProjectForm from "./Pages/Projects/ProjectForm";
 
@@ -23,6 +23,7 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
+
         <Route path="/projects" element={<Projects />} />
         <Route path="/explore" element={<Explore />} />
         <Route path="/form" element={<ProjectForm />} />
