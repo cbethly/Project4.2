@@ -92,7 +92,7 @@ function ProjectCards() {
       </div>
       {!isLoading && (
         <div className="pagination-container">
-          <div className="pagination">
+          <div className="pagination">      
             {pageNumbers.map((number) => (
               <Button
                 key={number}

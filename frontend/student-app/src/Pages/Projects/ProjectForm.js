@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import Review from "../Reviews/Reviews";
+
 
 import "./styles.css";
 
@@ -101,7 +101,7 @@ function ProjectForm() {
         {successMessage && <p>{successMessage}</p>}
         {errorMessage && <p>{errorMessage}</p>}
       </form>
-      <Review />
+    
     </div>
   );
 }

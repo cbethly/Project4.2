@@ -18,7 +18,7 @@ function App() {
         {user ? (
           <Route path="/" element={<Main />} />
         ) : (
-          <Route path="/" element={<Navigate replace to="/login" />} />
+          <Route path="/" element={<Navigate replace to="/signup" />} />
         )}
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />

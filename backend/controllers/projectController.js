@@ -3,40 +3,61 @@ const asyncHandler = require("express-async-handler");
 const User = require("../models/userModel");
 
 //@desc GetProject
-//@route GET /api/project
+//@route GET /api/project/:id
+//@access Public
 
 const getProject = asyncHandler(async (req, res) => {
-  if (req.user) {
-    const project = await Project.find({ user: req.user.id });
+  const { id } = req.params;
+  if (id) {
+    const project = await Project.findById(id);
+    if (!project) {
+      res.status(400);
+      throw new Error("Project not found");
+    }
+
     res.status(200).json(project);
   } else {
-    const project = await Project.find({});
-    res.status(200).json(project);
+    const projects = await Project.find(req.user ? { user: req.user.id } : {});
+    res.status(200).json(projects);
   }
 });
 
-const setProject = asyncHandler(async (req, res) => {
+//@desc GetProjects
+//@route GET /api/project
+//@access Public
+
+const getProjects = asyncHandler(async (req, res) => {
+  const projects = await Project.find(req.user ? { user: req.user.id } : {});
+  res.status(200).json(projects);
+});
+
+//@desc Create Project
+//@route POST /api/project
+//@access Private
+
+const createProject = asyncHandler(async (req, res) => {
   const { title, category, description, link, user } = req.body;
   if (!title || !category || !description || !link || !user) {
     res.status(400);
     throw new Error("Please add all the fields");
   }
 
-  console.log(req.body)
+  console.log(req.body);
 
   const project = await Project.create({
     title,
     category,
     description,
     link,
-    user,
+    user: req.user._id,
   });
 
-  console.log(project)
+  console.log(project);
   res.status(200).json(project);
 });
 
-//@route PUT/api/reviews
+//@desc Update Project
+//@route PUT /api/project/:id
 //@access Private
 
 const updateProject = asyncHandler(async (req, res) => {
@@ -45,8 +66,6 @@ const updateProject = asyncHandler(async (req, res) => {
     res.status(400);
     throw new Error("project not found");
   }
-
-;
 
   //check for user
   if (!req.user) {
@@ -80,8 +99,6 @@ const deleteProject = asyncHandler(async (req, res) => {
     throw new Error("Project not found");
   }
 
-
-
   //check for user
   if (!req.user) {
     res.status(401);
@@ -102,7 +119,8 @@ const deleteProject = asyncHandler(async (req, res) => {
 
 module.exports = {
   getProject,
-  setProject,
+  getProjects,
+  createProject,
   updateProject,
   deleteProject,
 };

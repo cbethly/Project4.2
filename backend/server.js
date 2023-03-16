@@ -5,7 +5,7 @@ var cors = require('cors')
 
 const bodyParser = require("body-parser");
 const { errorHandler } = require("./middleware/errorMiddleware");
-const port = process.env.PORT || 5000;
+const port = process.env.PORT || 8000;
 
 const connectDB = require("./config/db");
 
