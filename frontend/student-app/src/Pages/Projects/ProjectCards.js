@@ -74,9 +74,9 @@ function ProjectCards() {
         {!isLoading &&
           currentItems.map((project) => (
             <Link
-              to={`/explore/${project.id}`}
+              to={`/projects/${project._id}`}
               className="pLink"
-              key={project.id}
+              key={project._id}
             >
               <Card className="card">
                 <Card.Body>
@@ -92,7 +92,7 @@ function ProjectCards() {
       </div>
       {!isLoading && (
         <div className="pagination-container">
-          <div className="pagination">      
+          <div className="pagination">
             {pageNumbers.map((number) => (
               <Button
                 key={number}

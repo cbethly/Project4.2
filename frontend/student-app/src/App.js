@@ -25,12 +25,9 @@ function App() {
         <Route path="/home" element={<Home />} />
 
         <Route path="/projects" element={<Projects />} />
-        <Route path="/explore" element={<Explore />} />
+        <Route path="/projects/:id" element={<Explore />} />
         <Route path="/form" element={<ProjectForm />} />
-        <Route
-          path="/explore/:projectId"
-          render={(props) => <Explore {...props} />}
-        />
+
         <Route path="*" element={<NotFound />} />
       </Routes>
     </div>
