@@ -5,21 +5,22 @@ import Signup from "./components/Signup/signup";
 import Projects from "./Pages/Projects/Projects";
 import Explore from "./Pages/Explore/Explore";
 import Home from "./Pages/Home/Home";
+import Header from "./components/Header/Header";
+import { ToastContainer } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import ProjectForm from "./Pages/Projects/ProjectForm";
 
-import { Routes, Route, Navigate } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-  const user = localStorage.getItem("token");
+  // const user = localStorage.getItem("token");
   return (
     <div>
+      <Header />
+
       <Routes>
-        {user ? (
-          <Route path="/" element={<Main />} />
-        ) : (
-          <Route path="/" element={<Navigate replace to="/signup" />} />
-        )}
+        <Route path="/" element={<Main />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
         <Route path="/home" element={<Home />} />
@@ -30,6 +31,7 @@ function App() {
 
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <ToastContainer />
     </div>
   );
 }

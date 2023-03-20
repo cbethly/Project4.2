@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import Reviews from "../Reviews/Reviews";
+import "./explore.css";
 
 const Explore = () => {
   const [projectDetails, setProjectDetails] = useState({});
@@ -29,18 +31,19 @@ const Explore = () => {
         <div>
           <h1>{projectDetails.title}</h1>
           <p>{projectDetails.description}</p>
-          <p>{projectDetails.link}</p>
+          <p>{projectDetails.githubLink}</p>
+
+          <iframe
+            src={projectDetails.link}
+            title={projectDetails.title}
+          ></iframe>
+          <Reviews />
+
           {/* display other project details */}
 
           {/* <pre>{JSON.stringify(projectDetails, null, 2)}</pre> */}
         </div>
       )}
-      {/* <Link
-        to={`/explore/${params.id}/edit`} // Pass match.params.id as a prop to the Link component
-        className="editLink"
-      >
-        Edit Project
-      </Link> */}
     </div>
   );
 };

@@ -25,55 +25,50 @@ const registerUser = asyncHandler(async (req, res) => {
   }
 
   //Hash passwords
-  const salt = await bcrypt.genSalt(10)
-  const hashedPassword = await bcrypt.hash(password, salt)
+  const salt = await bcrypt.genSalt(10);
+  const hashedPassword = await bcrypt.hash(password, salt);
 
   //create user
 
   const user = await User.create({
     name,
     email,
-    password: hashedPassword
-  })
+    password: hashedPassword,
+  });
 
-  if(user) {
+  if (user) {
     res.status(201).json({
-        _id: user.id,
-        name: user.name,
-        email: user.email,
-        token: generateToken(user._id)
-    })
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    });
   } else {
-    res.status(400)
-    throw new Error('Invalid user data')
+    res.status(400);
+    throw new Error("Invalid user data");
   }
 });
-
 
 //@desc Authenticate user
 //@route POST /api/users/login
 //@access Public
 
 const loginUser = asyncHandler(async (req, res) => {
+  const { email, password } = req.body;
+  //check for user email
+  const user = await User.findOne({ email });
 
-    const {  email, password } = req.body
-//check for user email
-    const user = await User.findOne({email}) 
-    
-    if(user && (await bcrypt.compare(password, user.password))) {
-        res.json({
-
-            _id: user.id,
-            name: user.name,
-            email: user.email,
-            token: generateToken(user._id)
-
-        })
-    } else {
-        res.status(400)
-    throw new Error('Invalid credentials')
-
-    }
+  if (user && (await bcrypt.compare(password, user.password))) {
+    res.json({
+      _id: user.id,
+      name: user.name,
+      email: user.email,
+      token: generateToken(user._id),
+    });
+  } else {
+    res.status(400);
+    throw new Error("Invalid credentials");
+  }
 });
 //@desc Get user data
 //@route GET /api/users/user
@@ -86,13 +81,30 @@ const getUser = asyncHandler(async (req, res) => {
 // Generate JWT
 
 const generateToken = (id) => {
-    return jwt.sign({ id }, process.env.JWT_SECRET, {
-        expiresIn: '30d'
-    })
-}
+  return jwt.sign({ id }, process.env.JWT_SECRET, {
+    expiresIn: "30d",
+  });
+};
+
+const getUserProfile = asyncHandler(async (req, res) => {
+  const userId = req.user._id;
+  const user = await User.findById(userId);
+  if (user) {
+    res.status(200).json({
+      _id: user._id,
+      name: user.name,
+      email: user.email,
+    });
+  } else {
+    res.status(404);
+    throw new Error("User not found");
+  }
+});
 
 module.exports = {
   registerUser,
   loginUser,
   getUser,
+  getUserProfile,
 };
+// Add any additional profile data fields you want to return here

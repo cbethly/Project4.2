@@ -1,7 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
 
-
 import "./styles.css";
 
 function ProjectForm() {
@@ -9,6 +8,7 @@ function ProjectForm() {
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
   const [link, setLink] = useState("");
+  const [githubLink, setGithubLink] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -24,6 +24,7 @@ function ProjectForm() {
       category,
       description,
       link,
+      githubLink,
     };
 
     // Send form data to server using axios
@@ -34,8 +35,10 @@ function ProjectForm() {
 
         // Handle success response
         console.log("Success:", response.data);
-        setSuccessMessage("Project was submitted Successfully");
+        const projectId = response?.data?._id;
+        setSuccessMessage(`Project ${projectId} was submitted Successfully`);
       })
+
       .catch((error) => {
         setIsSubmitting(false);
         console.error("Error:", error);
@@ -50,6 +53,7 @@ function ProjectForm() {
     setCategory("");
     setDescription("");
     setLink("");
+    setGithubLink("");
   };
 
   return (
@@ -91,6 +95,15 @@ function ProjectForm() {
           />
         </label>
         <br />
+        <label>
+          Github link:
+          <input
+            type="text"
+            value={githubLink}
+            onChange={(event) => setGithubLink(event.target.value)}
+          />
+        </label>
+        <br />
         {isSubmitting ? (
           <p>Submitting form...</p>
         ) : (
@@ -101,7 +114,6 @@ function ProjectForm() {
         {successMessage && <p>{successMessage}</p>}
         {errorMessage && <p>{errorMessage}</p>}
       </form>
-    
     </div>
   );
 }

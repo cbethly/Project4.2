@@ -5,7 +5,9 @@ import Form from "react-bootstrap/Form";
 function Review({ projectId }) {
   const [reviewData, setReviewData] = useState({ title: "", comments: "" });
   const [isSubmitting, setIsSubmitting] = useState(false);
-
+  const [submittedComments, setSubmittedComments] = useState([]);
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWYxMDJjMmNlMzZiMzllMDk3ZGVlMiIsImlhdCI6MTY3NjYxNzU0NSwiZXhwIjoxNjc5MjA5NTQ1fQ.EGH_TE1v63Fvge9DEGXmy7Aebfqi36t9z1njnqp8qgM";
   const handleInputChange = (event) => {
     const { name, value } = event.target;
     setReviewData({ ...reviewData, [name]: value });
@@ -16,7 +18,10 @@ function Review({ projectId }) {
     setIsSubmitting(true);
     fetch("http://localhost:8000/api/reviews", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`, // replace token with your authentication token
+      },
       body: JSON.stringify({ ...reviewData, project_id: projectId }),
     })
       .then((response) => {
@@ -25,8 +30,13 @@ function Review({ projectId }) {
         }
         return response.json();
       })
-      .then(() => {
+      .then((data) => {
         alert("Review submitted successfully!");
+        setSubmittedComments([
+          ...submittedComments,
+          { comments: data.comments },
+        ]);
+
         setReviewData({ title: "", comments: "" });
       })
       .catch((error) => {
@@ -38,32 +48,32 @@ function Review({ projectId }) {
   };
 
   return (
-    <Form onSubmit={handleSubmit}>
-      <Form.Group controlId="reviewTitle">
-        <Form.Label>Title</Form.Label>
-        <Form.Control
-          type="text"
-          name="title"
-          placeholder="Enter review title"
-          value={reviewData.title}
-          onChange={handleInputChange}
-        />
-      </Form.Group>
-      <Form.Group controlId="reviewcomments">
-        <Form.Label>Comments</Form.Label>
-        <Form.Control
-          as="textarea"
-          rows={3}
-          name="comments"
-          placeholder="Enter review comments"
-          value={reviewData.comments}
-          onChange={handleInputChange}
-        />
-      </Form.Group>
-      <Button variant="primary" type="submit" disabled={isSubmitting}>
-        {isSubmitting ? "Submitting..." : "Submit"}
-      </Button>
-    </Form>
+    <div>
+      <Form onSubmit={handleSubmit}>
+        <Form.Group controlId="">
+          <Form.Label>Comments</Form.Label>
+          <Form.Control
+            as="textarea"
+            rows={3}
+            name="comments"
+            placeholder="Enter review comments"
+            value={reviewData.comments}
+            onChange={handleInputChange}
+          />
+        </Form.Group>
+        <Button variant="primary" type="submit" disabled={isSubmitting}>
+          {isSubmitting ? "Submitting..." : "Submit"}
+        </Button>
+      </Form>
+      <div>
+        {submittedComments.map((comment) => (
+          <div key={comment.id}>
+            <p>{comment.comments}</p>
+            <hr />
+          </div>
+        ))}
+      </div>
+    </div>
   );
 }
 

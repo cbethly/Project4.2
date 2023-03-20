@@ -1,21 +1,20 @@
 import styles from "./styles.module.css";
 import Navbar from "../Navbar";
-import Sidebar from "../Sidebar";
+import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
+import { useSelector } from "react-redux";
 
 const Main = () => {
-  const handleLogout = () => {
-    localStorage.removeItem("token");
-    window.location.reload();
-  };
+  const navigate = useNavigate();
+  const { user } = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    if (!user) {
+      navigate("/login");
+    }
+  }, [user, navigate]);
   return (
     <div className={styles.main_container}>
-      <nav className={styles.navbar}>
-        <h1>Student Portfolio</h1>
-        <button className={styles.white_btn} onClick={handleLogout}>
-          Logout
-        </button>
-      </nav>
       <Navbar />
     </div>
   );

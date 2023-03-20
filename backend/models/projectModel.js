@@ -23,6 +23,10 @@ const projectSchema = mongoose.Schema({
     type: String,
     required: true,
   },
+  githubLink: {
+    type: String,
+    required: true,
+  },
 });
 
 const Project = mongoose.model("Project", projectSchema);
