@@ -1,10 +1,8 @@
 import axios from "axios";
-import { useRouteLoaderData } from "react-router-dom";
 
 const API_URL = "http://localhost:8000/api/users/";
 
-//Register user
-
+// Register user
 const register = async (userData) => {
   const response = await axios.post(API_URL + "register", userData);
 
@@ -15,8 +13,7 @@ const register = async (userData) => {
   return response.data;
 };
 
-//login user
-
+// Login user
 const login = async (userData) => {
   const response = await axios.post(API_URL + "login", userData);
 

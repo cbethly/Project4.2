@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import axios from "axios";
 import { useSelector, useDispatch } from "react-redux";
 import { register, reset } from "../../reducers/authSlice";
 import { toast } from "react-toastify";
 import styles from "./styles.module.css";
+import Spinner from "./../Spinner";
 
 const Signup = () => {
   const [data, setData] = useState({
@@ -28,7 +28,7 @@ const Signup = () => {
       toast.error(message);
     }
     if (isSuccess || user) {
-      navigate("/ ");
+      navigate("/login ");
     }
     dispatch(reset());
   }, [user, isError, isSuccess, message, navigate, dispatch]);
@@ -53,6 +53,9 @@ const Signup = () => {
       dispatch(register(userData));
     }
   };
+  if (isLoading) {
+    return <Spinner />;
+  }
 
   return (
     <div className={styles.signup_container}>

@@ -5,6 +5,7 @@ import styles from "./styles.module.css";
 import { useDispatch, useSelector } from "react-redux";
 import { reset, login } from "../../reducers/authSlice";
 import { toast } from "react-toastify";
+import Spinner from "../Spinner";
 
 const Login = () => {
   const [data, setData] = useState({ email: "", password: "" });
@@ -48,6 +49,9 @@ const Login = () => {
     dispatch(login(userData));
   };
 
+  if (isLoading) {
+    return <Spinner />;
+  }
   return (
     <div className={styles.login_container}>
       <div className={styles.login_form_container}>
