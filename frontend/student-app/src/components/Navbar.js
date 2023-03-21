@@ -1,8 +1,10 @@
 import React from "react";
 
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbar = () => {
+  const { user } = useSelector((state) => state.auth);
   return (
     <div>
       <nav className="nav">
@@ -18,6 +20,7 @@ const Navbar = () => {
           </li>
         </ul>
       </nav>
+
       <div
         style={{
           display: "flex",
@@ -33,13 +36,18 @@ const Navbar = () => {
           color: "white",
         }}
       >
-        <h1 style={{ margin: "0 1rem", letterSpacing: "0.5rem" }}>
-          Student Portfolio
+        <h1
+          style={{
+            margin: "0 1rem",
+            letterSpacing: "0.5rem",
+            textAlign: "center",
+          }}
+        >
+          Welcome to Student Portfolio {user && user.name}
         </h1>
 
         <div style={{ flex: 1, textAlign: "right" }}>
           {" "}
-          {/* <-- Updated div */}
           <img
             src="https://thedigitalprojectmanager.b-cdn.net/wp-content/uploads/2022/04/What-Is-A-Project-Manager-Portfolio-featured-image-800x800.png"
             alt="nature"

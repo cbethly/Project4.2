@@ -1,50 +1,24 @@
 import React, { useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import { useDispatch } from "react-redux";
+import { createReview } from "../../reducers/reviewSlice";
 
-function Review({ projectId }) {
-  const [reviewData, setReviewData] = useState({ title: "", comments: "" });
-  const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submittedComments, setSubmittedComments] = useState([]);
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzZWYxMDJjMmNlMzZiMzllMDk3ZGVlMiIsImlhdCI6MTY3NjYxNzU0NSwiZXhwIjoxNjc5MjA5NTQ1fQ.EGH_TE1v63Fvge9DEGXmy7Aebfqi36t9z1njnqp8qgM";
+function Review() {
+  const [reviews, setReviews] = useState("");
+
+  const dispatch = useDispatch();
+
   const handleInputChange = (event) => {
-    const { name, value } = event.target;
-    setReviewData({ ...reviewData, [name]: value });
+    setReviews(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    setIsSubmitting(true);
-    fetch("http://localhost:8000/api/reviews", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-        Authorization: `Bearer ${token}`, // replace token with your authentication token
-      },
-      body: JSON.stringify({ ...reviewData, project_id: projectId }),
-    })
-      .then((response) => {
-        if (!response.ok) {
-          throw new Error("Failed to submit review.");
-        }
-        return response.json();
-      })
-      .then((data) => {
-        alert("Review submitted successfully!");
-        setSubmittedComments([
-          ...submittedComments,
-          { comments: data.comments },
-        ]);
+    console.log(reviews);
 
-        setReviewData({ title: "", comments: "" });
-      })
-      .catch((error) => {
-        alert(error.message);
-      })
-      .finally(() => {
-        setIsSubmitting(false);
-      });
+    dispatch(createReview({ reviews }));
+    setReviews("");
   };
 
   return (
@@ -56,23 +30,17 @@ function Review({ projectId }) {
             as="textarea"
             rows={3}
             name="comments"
-            placeholder="Enter review comments"
-            value={reviewData.comments}
+            placeholder="Enter comments"
+            value={reviews}
             onChange={handleInputChange}
           />
         </Form.Group>
-        <Button variant="primary" type="submit" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit"}
-        </Button>
+        <div className="form-group">
+          <Button variant="primary" type="submit">
+            Send
+          </Button>
+        </div>
       </Form>
-      <div>
-        {submittedComments.map((comment) => (
-          <div key={comment.id}>
-            <p>{comment.comments}</p>
-            <hr />
-          </div>
-        ))}
-      </div>
     </div>
   );
 }
