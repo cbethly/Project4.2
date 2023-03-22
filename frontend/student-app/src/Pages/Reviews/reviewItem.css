@@ -1,0 +1,38 @@
+.reviews {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 32px;
+}
+
+.review-item {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.review-avatar {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+}
+
+.review-username {
+  font-weight: bold;
+  margin-right: 8px;
+}
+
+.review-timestamp {
+  color: gray;
+  margin-left: auto;
+}
+
+.review-likes {
+  color: white;
+  background-color: blue;
+  margin-left: 16px;
+}
+
+.review-comment {
+  margin-top: 8px;
+}

@@ -1,11 +1,36 @@
 import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import Reviews from "../Reviews/Reviews";
+import ReviewItem from "../Reviews/reviewItem";
+import { useSelector, useDispatch } from "react-redux";
+import { getUserReviews, reset } from "../../reducers/reviewSlice";
 import "./explore.css";
 
 const Explore = () => {
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+
+  const { user } = useSelector((state) => state.auth);
+  const { reviews, isError, message } = useSelector((state) => state.reviews);
+
   const [projectDetails, setProjectDetails] = useState({});
   const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    if (isError) {
+      console.log(message);
+    }
+
+    if (!user) {
+      navigate("/login");
+    }
+
+    dispatch(getUserReviews());
+
+    return () => {
+      dispatch(reset());
+    };
+  }, [user, navigate, isError, message, dispatch]);
 
   const params = useParams();
 
@@ -29,19 +54,27 @@ const Explore = () => {
         <div>Loading...</div>
       ) : (
         <div>
-          <h1>{projectDetails.title}</h1>
-          <p>{projectDetails.description}</p>
+          <h1 className="title">{projectDetails.title}</h1>
+          <p className="description">{projectDetails.description}</p>
           <p>{projectDetails.githubLink}</p>
 
           <iframe
             src={projectDetails.link}
             title={projectDetails.title}
           ></iframe>
+
           <Reviews />
-
-          {/* display other project details */}
-
-          {/* <pre>{JSON.stringify(projectDetails, null, 2)}</pre> */}
+          <section className="content">
+            {reviews.length > 0 ? (
+              <div className="reviews">
+                {reviews.map((review) => (
+                  <ReviewItem key={review._id} review={review} />
+                ))}
+              </div>
+            ) : (
+              <h3>You have not made any comments</h3>
+            )}
+          </section>
         </div>
       )}
     </div>

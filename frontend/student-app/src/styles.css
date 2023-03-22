@@ -7,13 +7,13 @@ body {
 }
 
 .nav {
-  background-color: #8b9eb7;
-  color: white;
+  background-color: #faf9f6;
   display: flex;
   justify-content: left;
   align-items: stretch;
   gap: 2rem;
   padding: 0 1rem;
+  font-weight: bold;
 }
 
 .title {

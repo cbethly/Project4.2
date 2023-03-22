@@ -3,41 +3,42 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { useDispatch } from "react-redux";
 import { createReview } from "../../reducers/reviewSlice";
+import "./reviews.css";
 
 function Review() {
-  const [reviews, setReviews] = useState("");
+  const [text, setComments] = useState("");
 
   const dispatch = useDispatch();
 
   const handleInputChange = (event) => {
-    setReviews(event.target.value);
+    setComments(event.target.value);
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log(reviews);
+    console.log(text);
 
-    dispatch(createReview({ reviews }));
-    setReviews("");
+    dispatch(createReview({ text }));
+    setComments("");
   };
 
   return (
-    <div>
+    <div className="review-form" style={{ marginTop: "20px", padding: "20px" }}>
       <Form onSubmit={handleSubmit}>
         <Form.Group controlId="">
-          <Form.Label>Comments</Form.Label>
+          <Form.Label>Add a Comment</Form.Label>
           <Form.Control
             as="textarea"
             rows={3}
             name="comments"
             placeholder="Enter comments"
-            value={reviews}
+            value={text}
             onChange={handleInputChange}
           />
         </Form.Group>
         <div className="form-group">
           <Button variant="primary" type="submit">
-            Send
+            Post
           </Button>
         </div>
       </Form>
