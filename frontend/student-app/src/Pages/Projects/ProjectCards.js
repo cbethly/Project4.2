@@ -14,7 +14,7 @@ function ProjectCards() {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch("http://localhost:8000/api/project", {})
+    fetch("http://localhost:5000/api/project", {})
       .then((res) => res.json())
       .then((data) => {
         console.log(data);

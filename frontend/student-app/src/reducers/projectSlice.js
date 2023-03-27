@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import reviewService from "../reducers/reviewService";
+import projectService from "../reducers/projectService";
 
 const initialState = {
   reviews: [],
@@ -9,15 +9,13 @@ const initialState = {
   message: "",
 };
 
-//create review
-export const createReview = createAsyncThunk(
-  "reviews/create",
-  async (reviewData, thunkAPI) => {
+//create project
+export const createProject = createAsyncThunk(
+  "project/create",
+  async (projectData, thunkAPI) => {
     try {
-      const { user } = thunkAPI.getState().auth;
-      const token = user.token;
-      const data = { ...reviewData, username: user.username };
-      return await reviewService.createReview(data, token);
+      const token = thunkAPI.getState().auth.user.token;
+      return await projectService.createProject(projectService, token);
     } catch (error) {
       const message =
         (error.response &&
@@ -32,12 +30,12 @@ export const createReview = createAsyncThunk(
 
 //get user reviews
 
-export const getUserReviews = createAsyncThunk(
-  "reviews/getUserReviews",
+export const getProject = createAsyncThunk(
+  "project/getProject",
   async (_, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await reviewService.getUserReviews(token);
+      return await projectService.getProject(token);
     } catch (error) {
       const message =
         (error.response &&
@@ -52,12 +50,12 @@ export const getUserReviews = createAsyncThunk(
 
 //delete review
 
-export const deleteReviews = createAsyncThunk(
-  "reviews/delete",
-  async (reviewId, thunkAPI) => {
+export const deleteProject = createAsyncThunk(
+  "project/delete",
+  async (projectId, thunkAPI) => {
     try {
       const token = thunkAPI.getState().auth.user.token;
-      return await reviewService.deleteReviews(reviewId, token);
+      return await projectService.deleteProject(projectId, token);
     } catch (error) {
       const message =
         (error.response &&
@@ -70,7 +68,7 @@ export const deleteReviews = createAsyncThunk(
   }
 );
 
-export const reviewSlice = createSlice({
+export const projectSlice = createSlice({
   name: "reviews",
   initialState,
   reducers: {
@@ -78,43 +76,43 @@ export const reviewSlice = createSlice({
   },
   extraReducers: (builder) => {
     builder
-      .addCase(createReview.pending, (state) => {
+      .addCase(createProject.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(createReview.fulfilled, (state, action) => {
+      .addCase(createProject.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
         state.reviews.push(action.payload);
       })
-      .addCase(createReview.rejected, (state, action) => {
+      .addCase(createProject.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.message = action.payload;
       })
-      .addCase(getUserReviews.pending, (state) => {
+      .addCase(getProject.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(getUserReviews.fulfilled, (state, action) => {
+      .addCase(getProject.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
         state.reviews = action.payload;
       })
-      .addCase(getUserReviews.rejected, (state, action) => {
+      .addCase(getProject.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.message = action.payload;
       })
-      .addCase(deleteReviews.pending, (state) => {
+      .addCase(deleteProject.pending, (state) => {
         state.isLoading = true;
       })
-      .addCase(deleteReviews.fulfilled, (state, action) => {
+      .addCase(deleteProject.fulfilled, (state, action) => {
         state.isSuccess = true;
         state.isLoading = false;
         state.reviews = state.reviews.filter(
-          (review) => review.id !== action.payload
+          (project) => project.id !== action.payload
         );
       })
-      .addCase(deleteReviews.rejected, (state, action) => {
+      .addCase(deleteProject.rejected, (state, action) => {
         state.isError = true;
         state.isLoading = false;
         state.message = action.payload;
@@ -122,5 +120,5 @@ export const reviewSlice = createSlice({
   },
 });
 
-export const { reset } = reviewSlice.actions;
-export default reviewSlice.reducer;
+export const { reset } = projectSlice.actions;
+export default projectSlice.reducer;

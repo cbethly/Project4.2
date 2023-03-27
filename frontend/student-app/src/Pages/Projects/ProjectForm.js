@@ -1,5 +1,6 @@
 import { useState } from "react";
-import axios from "axios";
+import { useDispatch } from "react-redux";
+import { createProject } from "../../reducers/projectSlice";
 
 import "./styles.css";
 
@@ -13,48 +14,35 @@ function ProjectForm() {
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
 
+  const dispatch = useDispatch();
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
     setIsSubmitting(true);
 
-    const formData = {
-      user: "63f7e0c33cd721f735109140",
+    const project = {
       title,
       category,
       description,
       link,
       githubLink,
     };
-
-    // Send form data to server using axios
-    axios
-      .post("http://localhost:8000/api/project", formData)
-      .then((response) => {
-        setIsSubmitting(false);
-
-        // Handle success response
-        console.log("Success:", response.data);
-        const projectId = response?.data?._id;
-        setSuccessMessage(`Project ${projectId} was submitted Successfully`);
-      })
-
-      .catch((error) => {
-        setIsSubmitting(false);
-        console.error("Error:", error);
-        // Handle error response
-        setErrorMessage(
-          "There was an error submitting the form. Please try again later."
-        );
-      });
-
-    // Reset the form fields
-    setTitle("");
-    setCategory("");
-    setDescription("");
-    setLink("");
-    setGithubLink("");
+    dispatch(createProject({ project }));
+    setIsSubmitting(false);
+    setSuccessMessage("Project submitted successfully");
+    setErrorMessage(
+      'There was an error submitting your project. Please try again later."'
+    );
   };
+
+  const options = [
+    { value: "web", label: "Web" },
+    { value: "ai", label: "AI" },
+    { value: "android", label: "Android" },
+    { value: "iot", label: "IoT" },
+    { value: "cybersecurity", label: "Cybersecurity" },
+  ];
 
   return (
     <div className="form-container">
@@ -70,13 +58,19 @@ function ProjectForm() {
         <br />
         <label>
           Category:
-          <input
-            type="text"
+          <select
             value={category}
             onChange={(event) => setCategory(event.target.value)}
-            placeholder="Web, AI, Android, IOT, Cybersecurity ...."
-          />
+          >
+            <option value="">Select a category</option>
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
         </label>
+
         <br />
         <label>
           Description:
@@ -108,7 +102,7 @@ function ProjectForm() {
           <p>Submitting form...</p>
         ) : (
           <button type="submit" className="submit-button">
-            Submit
+            Upload Project
           </button>
         )}
         {successMessage && <p>{successMessage}</p>}

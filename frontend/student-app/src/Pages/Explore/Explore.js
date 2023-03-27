@@ -36,7 +36,7 @@ const Explore = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:8000/api/project/${params.id}`)
+    fetch(`http://localhost:5000/api/project/${params.id}`)
       .then((res) => res.json())
       .then((data) => {
         setProjectDetails(data);
@@ -56,6 +56,10 @@ const Explore = () => {
         <div>
           <h1 className="title">{projectDetails.title}</h1>
           <p className="description">{projectDetails.description}</p>
+          <a href={projectDetails.link} className="link">
+            <p>{projectDetails.link}</p>
+          </a>
+
           <p>{projectDetails.githubLink}</p>
 
           <iframe

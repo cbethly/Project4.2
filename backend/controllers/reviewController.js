@@ -2,8 +2,6 @@ const asyncHandler = require("express-async-handler");
 
 const Reviews = require("../models/reviewModel");
 
-const User = require("../models/userModel");
-
 //@desc GetReviews
 //@route GET /api/reviews
 //@access Private
@@ -13,11 +11,11 @@ const getReviews = asyncHandler(async (req, res) => {
   res.status(200).json(reviews);
 });
 
-//@desc SetReviews
+//@desc createReviews
 //@route POST /api/reviews
 //@access Private
 
-const setReviews = asyncHandler(async (req, res) => {
+const createReviews = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
     throw new Error("Please add a text field");
@@ -93,7 +91,7 @@ const deleteReviews = asyncHandler(async (req, res) => {
 
 module.exports = {
   getReviews,
-  setReviews,
+  createReviews,
   updateReviews,
   deleteReviews,
 };
