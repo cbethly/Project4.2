@@ -1,0 +1,440 @@
+{
+  "posts": [
+    {
+      "id": "63fcae13ae622b5002a9596a",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Student Portfolio",
+      "category": "Web",
+      "description": "A web application for students to upload their projects",
+      "link": "http://localhost:3000//",
+      "__v": 0
+    },
+    {
+      "id": "63fcb002ae622b5002a9596e",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "AI Breast Cancer Prognosis App",
+      "category": "AI",
+      "description": "An application that uses AI to prognose breast cancer",
+      "link": "https://kamemia-cancer-prognosis-cnn-app-y8et7x.streamlit.app/",
+      "__v": 0
+    },
+    {
+      "id": "63fdf7aeab68ce3143fdee51",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Enkolili\"",
+      "category": "Web",
+      "description": " A charity organization website",
+      "link": "http://www.enkolili-cbo.org/",
+      "__v": 0
+    },
+    {
+      "id": "63fe10403e95f0b64ac25f66",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Time tabler",
+      "category": "Web",
+      "description": "personalisation of the master timetable",
+      "link": "https://webflow.com/blog/gestalt-principles-of-design",
+      "__v": 0
+    },
+    {
+      "id": "63feff3f2bfbcfacb55c1748",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 2",
+      "category": "AI",
+      "description": "recomender sysytem",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63feff722bfbcfacb55c174c",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 3",
+      "category": "CyberSecurity",
+      "description": "honeycomb project",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63feff9e2bfbcfacb55c1750",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "project 4",
+      "category": "Android",
+      "description": "kjzncioUS:",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63feffb02bfbcfacb55c1752",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 4",
+      "category": "IOT",
+      "description": "jkbzciusb",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63feffc02bfbcfacb55c1754",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project5",
+      "category": "Web",
+      "description": "jbsdyuclscgb.",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63feffd72bfbcfacb55c1756",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 6",
+      "category": "IOT",
+      "description": ",jzbhkbkzbh",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63ff073b2bfbcfacb55c176a",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project7",
+      "category": "Web",
+      "description": "SKJBCylual",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63ff074c2bfbcfacb55c176c",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project8",
+      "category": "AI",
+      "description": "zcb ksvclosyubdhcx j",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63ff07632bfbcfacb55c176e",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 9",
+      "category": "Android",
+      "description": "hjbSdyuvasclyuh c",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63ff07782bfbcfacb55c1770",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 10",
+      "category": "CyberSecurity",
+      "description": "hbKVDScsaytoevkghc ",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63ff07872bfbcfacb55c1772",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project11",
+      "category": "IOT",
+      "description": "hbzxhjcbkasuy",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63ff07932bfbcfacb55c1774",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 12",
+      "category": "AI",
+      "description": " JHBydluabjcd",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "63ff07ab2bfbcfacb55c1776",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project13",
+      "category": "Web",
+      "description": "bSJBCluagysbchj",
+      "link": "https://www.google.com/search?q=AI&oq=AI&aqs=chrome..69i57j0i67i131i433j46i67j46i67i199i433i465j69i65j69i61j69i60l2.735j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6401d58da3d827907d7d5167",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Zuri ",
+      "category": "Web",
+      "description": "E-commerce bakery site",
+      "link": "https://www.google.com/search?q=lorem+ipsum+generator&oq=lorem&aqs=chrome.0.69i59l2j69i57j0i512l4j69i61.2926j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6401d5afa3d827907d7d5169",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Credit card",
+      "category": "Web",
+      "description": "credit card fraud detection",
+      "link": "https://www.google.com/search?q=lorem+ipsum+generator&oq=lorem&aqs=chrome.0.69i59l2j69i57j0i512l4j69i61.2926j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6401d5eba3d827907d7d516b",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Rock paper scissors",
+      "category": "Entertainment",
+      "description": "game to entertain students",
+      "link": "https://www.google.com/search?q=lorem+ipsum+generator&oq=lorem&aqs=chrome.0.69i59l2j69i57j0i512l4j69i61.2926j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6401d652a3d827907d7d516d",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Number plate recognition system",
+      "category": "AI",
+      "description": "AI system to recognise number plates",
+      "link": "https://www.google.com/search?q=lorem+ipsum+generator&oq=lorem&aqs=chrome.0.69i59l2j69i57j0i512l4j69i61.2926j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6401d6f7a3d827907d7d5173",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 14",
+      "category": "AI",
+      "description": "jkbyuzvbulciksznl",
+      "link": "https://www.google.com/search?q=lorem+ipsum+generator&oq=lorem&aqs=chrome.0.69i59l2j69i57j0i512l4j69i61.2926j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6401d70ca3d827907d7d5175",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 15",
+      "category": "Cyber Security",
+      "description": "hjbsdyucbjldc",
+      "link": "https://www.google.com/search?q=lorem+ipsum+generator&oq=lorem&aqs=chrome.0.69i59l2j69i57j0i512l4j69i61.2926j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "64056377accf949927352edc",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 19",
+      "category": "Web",
+      "description": "skzlcmkzklsm",
+      "link": "https://www.wowzi.co/",
+      "__v": 0
+    },
+    {
+      "id": "640ac8b2add56095f9cdf067",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Project 20",
+      "category": "AI",
+      "description": "jkbzscuysg",
+      "link": "https://www.google.com/search?q=lorem+ipsum&oq=lore&aqs=chrome.1.69i57j69i59l3j46i131i199i433i465i512j46i175i199i512l3j0i512j46i512.3187j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6411c4ac3513cd89e776b987",
+      "user": "63f7e0c33cd721f735109140",
+      "title": "Fire detection System",
+      "category": "IOT",
+      "description": "vhzvxyuvsucvbj ",
+      "link": "https://www.google.com/search?q=personal+statements+on+leadership&oq=&aqs=chrome.1.35i39i362l6j46i39i199i362i465j35i39i362.85979j0j1&sourceid=chrome&ie=UTF-8",
+      "__v": 0
+    },
+    {
+      "id": "6422b42267855cf98fb8421d",
+      "user": "64194f6f6ca1d5ff4f85dd09",
+      "title": "Student Portfolio",
+      "category": "web",
+      "description": "App for students to post their projects",
+      "link": "https://www.loremipzum.com/en/text-generator",
+      "githubLink": "https://github.com/",
+      "__v": 0
+    },
+    {
+      "id": "6429f79a34390281db840d3e",
+      "user": "64194f6f6ca1d5ff4f85dd09",
+      "title": "Student Portfolio",
+      "category": "web",
+      "description": "App for students to post their projects",
+      "link": "https://www.loremipzum.com/en/text-generator",
+      "githubLink": "https://github.com/",
+      "__v": 0
+    }
+  ],
+  "users": [
+    {
+      "id": "63ef08d50b34b4beb2a18a6d",
+      "name": "John Doe",
+      "email": "john@gmail.com",
+      "password": "$2a$10$RJ41ehiVcaxVLyzuitdNFONJiW4Rfr5iWfsJ2UCfeMNoi2exBvEiO",
+      "createdAt": "2023-02-17T04:55:49.032+00:00",
+      "updatedAt": "2023-02-17T04:55:49.032+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63ef102c2ce36b39e097dee2",
+      "name": "Jane Doe",
+      "email": "jane@gmail.com",
+      "password": "$2a$10$3SwuwcD/C09m3CyR09.PpORuYPLD15TymHA7U20YopPV83KQsg4WW",
+      "createdAt": "2023-02-17T05:27:08.115+00:00",
+      "updatedAt": "2023-02-17T05:27:08.115+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63ef35274d4b74de2c6b6d7b",
+      "name": "Ian Bett",
+      "email": "ian@gmail.com",
+      "password": "$2a$10$mhWN.fopj1TTcDa9inT6zOxZH1vC0Xkiu/oDqK2yjctcc/wicpzse",
+      "createdAt": "2023-02-17T08:04:55.097+00:00",
+      "updatedAt": "2023-02-17T08:04:55.097+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63ef61d94d4b74de2c6b6d81",
+      "name": "Laura",
+      "email": "laura@gmail.com",
+      "password": "$2a$10$iKVWncXTB42Fdxv5an0u7ebXGl9RUsmtWSDoMkWu/tT2t3ti6IEEa",
+      "createdAt": "2023-02-17T11:15:37.384+00:00",
+      "updatedAt": "2023-02-17T11:15:37.384+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63ef63a54d4b74de2c6b6d89",
+      "name": "Kami",
+      "email": "kami@gmail.com",
+      "password": "$2a$10$5pdpmjEj3IOqNcbfyoRTPOrK/DbPZfQcME18X52uHGoZ1n1hpFTTS",
+      "createdAt": "2023-02-17T11:23:17.446+00:00",
+      "updatedAt": "2023-02-17T11:23:17.446+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63ef65ef4d4b74de2c6b6d8f",
+      "name": "Jose",
+      "email": "jose@gmail.com",
+      "password": "$2a$10$AE4Ddf4cmqMPb5gaXGym9OnU7bwY9ykSXmDD4IyvOASvyZIptASY6",
+      "createdAt": "2023-02-17T11:33:03.421+00:00",
+      "updatedAt": "2023-02-17T11:33:03.421+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63ef70b8fc382b26d61821b0",
+      "name": "Saruni",
+      "email": "saruni@gmail.com",
+      "password": "$2a$10$V4qIpPSYzHQn0k3OIkzo9.NLgETJRSQz/zkiZlJBMSIk7/S9dYUMC",
+      "createdAt": "2023-02-17T12:19:04.822+00:00",
+      "updatedAt": "2023-02-17T12:19:04.822+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63ef72ac4d9bc30bf535e5db",
+      "name": "Lian",
+      "email": "lian@gmail.com",
+      "password": "$2a$10$l124kQHsF2KnM9ltdAgLG.5i0ZE8LomtkxcY1BbEooBIxmfbRdjKG",
+      "createdAt": "2023-02-17T12:27:24.575+00:00",
+      "updatedAt": "2023-02-17T12:27:24.575+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63f0c10e8b067e8581307e74",
+      "name": "Dorcas",
+      "email": "dorcas@gmail.com",
+      "password": "$2a$10$GbnTMUaHNycwFTyGJbLH2uSVU6LFBntuAZWVGcZjae0r351yeO4ya",
+      "createdAt": "2023-02-18T12:14:06.908+00:00",
+      "updatedAt": "2023-02-18T12:14:06.908+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63f0c2c70e2e420d7e12817a",
+      "name": "Bore",
+      "email": "bore@gmail.com",
+      "password": "$2a$10$dlEKDIASshrHKF7dsKokoO/xwO7pFu0sxoNbFs9UjIfDIA5.Iz66.",
+      "createdAt": "2023-02-18T12:21:27.886+00:00",
+      "updatedAt": "2023-02-18T12:21:27.886+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63f75f42827e5bdc29f5f50a",
+      "name": "Marvin",
+      "email": "marvin@gmail.com",
+      "password": "$2a$10$M2PFrBUyJQIIaXaiPvkLMudbQqUiVzOI.H/GySvj8zu9szsX/sayu",
+      "createdAt": "2023-02-23T12:42:42.238+00:00",
+      "updatedAt": "2023-02-23T12:42:42.238+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63f7e0c33cd721f735109140",
+      "name": "Dan",
+      "email": "Dan@gmail.com",
+      "password": "$2a$10$8BGE1sCZQD/OUcnHc2mxSui6pK3ZsbMLcxyuQpeay4tiDOoaBF7CC",
+      "createdAt": "2023-02-23T21:55:15.509+00:00",
+      "updatedAt": "2023-02-23T21:55:15.509+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63fc85df19239570a6505476",
+      "name": "Munai Kevin",
+      "email": "munai@gmail.com",
+      "password": "$2a$10$1h4rH703AW18wUTqvkwlcebo3KgKhAB41E6UBgv1UfCJNPDmR7QmG",
+      "createdAt": "2023-02-27T10:28:47.205+00:00",
+      "updatedAt": "2023-02-27T10:28:47.205+00:00",
+      "__v": 0
+    },
+    {
+      "id": "63fdf755ab68ce3143fdee4a",
+      "name": "Bethoo",
+      "email": "bethoo@gmail.com",
+      "password": "$2a$10$UyO5Y/Hz0e/w3v6cZKNZ5ea1r87hZit9EvvM4w9rGIaWJxBYJJcBG",
+      "createdAt": "2023-02-28T12:45:09.190+00:00",
+      "updatedAt": "2023-02-28T12:45:09.190+00:00",
+      "__v": 0
+    },
+    {
+      "id": "6411be573513cd89e776b979",
+      "name": "Joyline",
+      "email": "joyline@gmail.com",
+      "password": "$2a$10$p5M5x2wOsl04ohB.fnoDWOPUwJUenqaBL2pIgaGaaAD0bBsfMFBvK",
+      "createdAt": "2023-03-15T12:47:19.937+00:00",
+      "updatedAt": "2023-03-15T12:47:19.937+00:00",
+      "__v": 0
+    },
+    {
+      "id": "6416baee53dbe8fd317369eb",
+      "name": "Test3",
+      "email": "test3@gmail.com",
+      "password": "$2a$10$Uti.2demsD1ycdwhP60sOu0V0I3VOL5RTOqFU6DabgitDGqbfr1t.",
+      "createdAt": "2023-03-19T07:34:06.225+00:00",
+      "updatedAt": "2023-03-19T07:34:06.225+00:00",
+      "__v": 0
+    },
+    {
+      "id": "6418550df0e7b6cad3cefc30",
+      "name": "TestA",
+      "email": "testa@gmail.com",
+      "password": "$2a$10$Oa08yHHt8plh7RvDyE7fwOnPFdSKcwLD4sm.PlSh2FMR6W4PbRoCu",
+      "createdAt": "2023-03-20T12:43:57.366+00:00",
+      "updatedAt": "2023-03-20T12:43:57.366+00:00",
+      "__v": 0
+    },
+    {
+      "id": "64185603f0e7b6cad3cefc36",
+      "name": "TestB",
+      "email": "testb@gmail.com",
+      "password": "$2a$10$84Ji8QS9I6KDqoI4qhVG5OycoF8/cQUbPm0vsXXpScYbdcwD9TMfS",
+      "createdAt": "2023-03-20T12:48:03.511+00:00",
+      "updatedAt": "2023-03-20T12:48:03.511+00:00",
+      "__v": 0
+    },
+    {
+      "id": "64185634f0e7b6cad3cefc39",
+      "name": "Marvin M",
+      "email": "marvim@gmail,com",
+      "password": "$2a$10$bKLgMFP.wDCr781j46w1HOX3EL6uaj1GPkeM2GKQmjT1E4Hb11uVq",
+      "createdAt": "2023-03-20T12:48:52.021+00:00",
+      "updatedAt": "2023-03-20T12:48:52.021+00:00",
+      "__v": 0
+    },
+    {
+      "id": "64186498a6a956124344569e",
+      "name": "Lusigi",
+      "email": "lusigi@gmail.com",
+      "password": "$2a$10$2LoctaBuEcL8cpKx12FwFe9KQy2uL8ux3mwNnWjk.t6CPN6fc6REe",
+      "createdAt": "2023-03-20T13:50:16.270+00:00",
+      "updatedAt": "2023-03-20T13:50:16.270+00:00",
+      "__v": 0
+    }
+  ]
+}

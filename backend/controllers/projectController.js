@@ -35,8 +35,8 @@ const getProjects = asyncHandler(async (req, res) => {
 //@access Private
 
 const createProject = asyncHandler(async (req, res) => {
-  const { title, category, description, link, githubLink } = req.body;
-  if (!title || !category || !description || !link || !githubLink) {
+  const { title, category, description, link, githubLink, user } = req.body;
+  if (!title || !category || !description || !link || !githubLink || !user) {
     res.status(400);
     throw new Error("Please add all the fields");
   }
@@ -49,7 +49,7 @@ const createProject = asyncHandler(async (req, res) => {
     description,
     link,
     githubLink,
-    user: req.user.id,
+    user,
   });
 
   console.log(project);

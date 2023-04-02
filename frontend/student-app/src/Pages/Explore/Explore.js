@@ -36,7 +36,7 @@ const Explore = () => {
 
   useEffect(() => {
     setIsLoading(true);
-    fetch(`http://localhost:5000/api/project/${params.id}`)
+    fetch(`http://localhost:8000/api/project/${params.id}`)
       .then((res) => res.json())
       .then((data) => {
         setProjectDetails(data);

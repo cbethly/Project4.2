@@ -8,8 +8,9 @@ function ProjectForm() {
   const [title, setTitle] = useState("");
   const [category, setCategory] = useState("");
   const [description, setDescription] = useState("");
-  const [link, setLink] = useState("");
   const [githubLink, setGithubLink] = useState("");
+  const [link, setLink] = useState("");
+  const [user, setUser] = useState("");
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errorMessage, setErrorMessage] = useState("");
   const [successMessage, setSuccessMessage] = useState("");
@@ -27,6 +28,7 @@ function ProjectForm() {
       description,
       link,
       githubLink,
+      user,
     };
     dispatch(createProject({ project }));
     setIsSubmitting(false);
@@ -98,6 +100,15 @@ function ProjectForm() {
           />
         </label>
         <br />
+        <label>
+          User:
+          <input
+            type="text"
+            value={user}
+            onChange={(event) => setUser(event.target.value)}
+          />
+        </label>
+        <br />
         {isSubmitting ? (
           <p>Submitting form...</p>
         ) : (
@@ -108,6 +119,7 @@ function ProjectForm() {
         {successMessage && <p>{successMessage}</p>}
         {errorMessage && <p>{errorMessage}</p>}
       </form>
+      <pre>{JSON.stringify(user)}</pre>
     </div>
   );
 }
